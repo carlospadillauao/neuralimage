@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://unpkg.com/@tensorflow/tfjs"></script>
+    <script src="https://unpkg.com/@tensorflow-models/mobilenet"></script>
+    <!--<script src="https://unpkg.com/@tensorflow-models/mobilenet@1.0.0"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+
+    <link rel="stylesheet" href="css/estl1.css" type="text/css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+    <ul class="navi">
+        <li><a href="#seccion1">Inicio</a></li>
+        <li><a href="#seccion2">Introduccion</a></li>
+        <li><a href="#Mobile">Mobilenet</a></li>
+        <li><a href="#seccion3">App</a></li>
+        <li><a href="#Teoria">Teoria</a></li>
+        <li><a href="#seccion4">Info</a></li>
+    </ul>
+    <section id="seccion1">
+        <div class="dc">
+            <h4 class="TITULO_P">Reconocimiento de imagenes utilizando redes neuronales artificiales</h4>
+        </div>
+
+    </section>
+    <section id="seccion2">
+        <div class="textos">
+            <img src="imagenes/intro.png" alt="" height="1500" width="1500">
+
+        </div>
+
+
+    </section>
+    <section id="Mobile">
+        <section id="ma">
+            <h1 class="fontan">Mobilenet</h1>
+            <br>
+            <p>Pon a prueba la capacidad de reconocimiento de imágenes de una red neuronal pre-entrenada</p>
+            <br>
+            <a class="btn btn-primary" href="#mb">Iniciar</a>
+        </section>
+        <section id="mb">
+
+            <div class="appa">
+                <h1>Instrucciónes</h1>
+                <p class="pepe">
+
+                    <br>
+                    <br>1. Selecciona un archivo de imagen.
+                    <br>2. Oprime el botón “Validar”.
+                    <br>
+                    <br>En la parte inferior se podrá observar el resultado propuesto por la red neuronal asociado a la
+                    imagen entregada.
+
+                </p>
+            </div>
+            <div class="pa">
+                <h1>Mobilenet</h1>
+                <div class="appb">
+
+                    <form action="#" class="exept">
+                        <label for="exampleFormControlFile1">Seleccionar imagen para validar.</label>
+                        <div class="form-group form_entradab">
+                            <input type="file" id="image-selector3m">
+                            <button type="button" id="file-button3m" class="btn btn-primary">File</button>
+                            <button type="button" id="camera-button3m" class="btn btn-primary">Camera</button>
+                        </div>
+
+                        <div id="seleccion_i2">
+                            <img id="selected-image3m" class="marco_imagen" src="imagenes/arrow.png" height="224"
+                                width="224" />
+                            <video autoplay playsinline muted id="webcam3m" width="224" height="224"></video>
+                            <canvas id="myCanvas3m" width="224" height="224"></canvas>
+                        </div>
+
+                        <br>
+                        <div class="prediccionm">
+                            <p id="texto4m" class="tmobile">Prediccion</p>
+                            <p id="texto4l" class="tmobile tms"></p>
+                            <p id="texto4s" class="tmobile tms"></p>
+
+                            <div id="spinerfm" class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <br>
+                        </div>
+                        <button type="button" id="predict-buttonm" class="btn btn-primary">Validar</button>
+
+                    </form>
+                </div>
+        </section>
+    </section>
+    <section id="seccion3">
+        <section id="start">
+            <h1>Aplicación</h1>
+            <h1 class="fontan">Entrenando Red Neuronal</h1>
+            <br>
+            <p>Entrena una red neuronal para asociar un nuevo conjunto de imágenes con su respectiva clase</p>
+            <br>
+            <a class="btn btn-primary" href="#app1">Iniciar</a>
+        </section>
+        <section id="app1">
+            <div class="appa">
+                <h1>Instrucciónes</h1>
+                <p class="pepe">
+                    Definir las clases a las que se le asignaran diversas imágenes a utilizar para el entrenamiento.
+                    <br>
+                    <br>1. En la casilla de texto escriba el nombre de la clase.
+                    <br>2. Oprime el botón "agregar clase"
+                    <br>
+                    <br>En la parte inferior de la aplicación se podrá observar la lista de las clases agregadas.
+                    <br>
+                    <br>Oprime el botón situado en la parte inferior para continuar al siguiente paso.
+                </p>
+            </div>
+            <div class="pa">
+                <h1>Definir clases de entrenamiento</h1>
+                <div class="appb">
+                    <form name="clases_formulario" action="#">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Nueva clase.</label>
+                            <input type="text" class="form-control" id="class-input" placeholder="nombre-clase">
+                        </div>
+                        <button type="button" class="btn btn-primary" id="agregar_clase">Agregar Clase</button>
+                        <button type="button" class="btn btn-primary" id="borrar_clase">Borrar Lista</button>
+                        <div class="form-group">
+                            <label for="rob"> Elementos agregados:</label>
+
+                            <select name="clases_f" class="custom-select" multiple onchange="item_lista()">
+                                <option selected>-</option>
+                            </select>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="pb">
+                    <a class="btn btn-primary" href="#app2">Paso 2</a>
+                </div>
+
+        </section>
+        <section id="app2">
+            <div class="appa">
+                <h1>Instrucciónes</h1>
+                <p class="pepe">
+                    Seleccionar una a una las imágenes a utilizar para el entrenamiento y asignarlas a una de las clases
+                    ya definidas.
+                    <br>
+                    <br>1. Selecciona una imagen en el apartado de "Imagen".
+                    <br>2. Selecciona la clase a la que se desea asignar.
+                    <br>3. Oprime el botón de "agregar imagen" al lado derecho de la pestaña.
+                    <br>
+                    <br>En la parte derecha de la aplicación se podrá observar la lista de las imágenes con su
+                    respectiva clase asignada además de un botón para borrar la última imagen agregada("Borrar Ultimo").
+                    <br>
+                    <br>Oprime el botón situado en la parte inferior para continuar al siguiente paso.
+                </p>
+            </div>
+            <div class="pa">
+                <h1>Seleccion de imagenes</h1>
+                <div class="appb">
+                    <form name="clases_formulario2" action="#">
+                        <label for="exampleFormControlFile1">Seleccionar imagen.</label>
+                        <div class="form-group form_entradaa">
+                            <input type="file" id="image-selector">
+                            <button type="button" id="file-button" class="btn btn-primary">File</button>
+                            <button type="button" id="camera-button" class="btn btn-primary">Camera</button>
+                        </div>
+
+                        <div id="seleccion_i">
+                            <img id="selected-image" class="marco_imagen" src="imagenes/arrow.png" height="224"
+                                width="224" />
+                            <img id="selected-image2" src="" height="224" width="224" />
+                            <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
+                            <canvas id="myCanvas" width="224" height="224"></canvas>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Seleccionar clase.</label>
+                            <select name="clases_f2" class="form-control" id="exampleFormControlSelect1"
+                                onchange="item_lista()">
+                                <option>-</option>
+                            </select>
+
+                        </div>
+                        <button type="button" id="image-button" class="btn btn-primary">Agregar Imagen</button>
+
+                    </form>
+
+                    <form action="#">
+                        <label for="exampleFormControlFile1">Cantidad de imagenes en lista:</label>
+
+                        <div class="form-group">
+                            <label for="new">Lista de entrenamiento:</label>
+                            <div class="lista_imagenes">
+                                <ul id="lista" class="list-unstyled">
+                                    <li class="media"> </li>
+                                    <li class="media"><label for="" class="listtt_2">#</label><label for=""
+                                            class="listtt">Clase</label><label for="" class="listtt">Imagen</label></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button type="button" id="btn_borrar_ultimo" class="btn btn-primary">Borrar Ultimo</button>
+                    </form>
+                </div>
+                <div class="pb">
+                    <a class="btn btn-primary" href="#app1">Paso 1</a>
+                    <a class="btn btn-primary" href="#app3">Paso 3</a>
+                </div>
+            </div>
+        </section>
+        <section id="app3">
+            <div class="appa">
+                <h1>Instrucciónes</h1>
+                <p class="pepe">
+                    Con los datos listos se procede a entrenar la red neuronal.
+                    <br>
+                    <br>Oprimir el botón “Entrenar” para iniciar el entrenamiento.
+                    <br>
+                    <br>En todo momento se podrá observar el estado del entrenamiento.
+                    <br>
+                    <br>Oprime el botón situado en la parte inferior para continuar al siguiente paso.
+
+                </p>
+
+            </div>
+            <div class="pa">
+                <h1>Entrenamiento</h1>
+                <div class="appb">
+
+                    <form action="#" class="exept">
+                        <p>Ciclo de entrenamiento</p>
+                        <p id="e1" class="entrenar_1">Iniciar entrenamiento ...</p>
+
+
+                        <p id="e3" class="entrenar_2">Entrenando...</p>
+                        <div id="e4" class="spinner-border text-primary" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+
+                        <p id="e5" class="entrenar_3">Fin del entrenamiento.</p>
+                        <img id="e6" class="entrenar_3" src="imagenes/check.png" height="100" width="150" />
+                        <button type="button" id="train-button" class="btn btn-primary entrenar_1">Entrenar</button>
+                    </form>
+                </div>
+                <div class="pb">
+                    <a class="btn btn-primary" href="#app2">Paso 2</a>
+                    <a class="btn btn-primary" href="#app4">Paso 4</a>
+                </div>
+        </section>
+        <section id="app4">
+            <div class="appa">
+                <h1>Instrucciónes</h1>
+                <p class="pepe">
+                    Después de entrenada se puede validar la funcionalidad de la red neuronal al entregarle una imagen
+                    observando el resultado que esta arroja.
+                    <br>
+                    <br>1. Selecciona un archivo de imagen.
+                    <br>2. Oprime el botón “Validar”.
+                    <br>
+                    <br>En la parte inferior se podrá observar el resultado propuesto por la red neuronal asociado a la
+                    imagen entregada.
+
+                </p>
+            </div>
+            <div class="pa">
+                <h1>Validar</h1>
+                <div class="appb">
+
+                    <form action="#" class="exept">
+                        <label for="exampleFormControlFile1">Seleccionar imagen para validar.</label>
+                        <div class="form-group form_entradab">
+                            <input type="file" id="image-selector3">
+                            <button type="button" id="file-button2m" class="btn btn-primary">File</button>
+                            <button type="button" id="camera-button2m" class="btn btn-primary">Camera</button>
+                        </div>
+
+                        <div id="seleccion_i2">
+                            <img id="selected-image3" class="marco_imagen" src="imagenes/arrow.png" height="224"
+                                width="224" />
+                            <video autoplay playsinline muted id="webcam2m" width="224" height="224"></video>
+                            <canvas id="myCanvas2m" width="224" height="224"></canvas>
+
+                        </div>
+
+                        <p id="texto4" class="txr">Prediccion</p>
+                        <p id="texto4b" class="txr"> </p>
+                        <p id="texto4c" class="txr"> </p>
+                        <div id="spinerf" class="spinner-border text-primary" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <br>
+                        <button type="button" id="predict-button" class="btn btn-primary">Validar</button>
+
+                    </form>
+                </div>
+                <div class="pb">
+                    <a class="btn btn-primary" href="#app3">Paso 3</a>
+                </div>
+        </section>
+    </section>
+    <section id="Teoria">
+        <div class="indexx">
+            <div class="d22">
+                <h4>Index</h4>
+                <p><a href="#t1">Que es una red neuronal artificial?</a></p>
+                <p><a href="#t3">Que es una “capa” en este contexto? </a></p>
+                <p><a href="#t2">Que es una neurona artificial? </a></p>
+                <p><a href="#t4">Como funciona una neurona artificial? </a></p>
+                <p><a href="#t5">Como se entrena una red neuronal? </a></p>
+                
+                <p><a href="#tp">Deseas conocer mas? </a></p>
+            </div>
+        </div>
+        <div class="contenido">
+            <div class="d1">
+                <h3 class="teoria_intro">Aumenta tu conocimiento sobre las redes neuronales artificiales</h3>
+            </div>
+            <div class="d2">
+
+                <h4 id="t1" class="texto_info">Que es una red neuronal artificial?</h4>
+                <p>Una red neuronal artificial es un conjunto ordenado de capas conformadas por neuronas artificiales
+                    conectadas entre si(capa de entrada, capas ocultas y capa de salida).</p>
+                    <img src="imagenes/Red neuronal.PNG" alt="">
+                <h4 id="t3" class="texto_info">Que es una “capa” en este contexto? </h4>
+                <p>Una capa neuronal es un nivel de procesamiento conformado por un conjunto de neuronas ordenadas las
+                    cuales comparten un mismo grupo de entradas. Estas capas neuronales generalmente se representan por
+                    un conjunto de unidades(neuronas) ordenadas en forma de vector o plano. </p>
+                <h4 id="t2" class="texto_info">Que es una neurona artificial?</h4>
+                <p>Una neurona artificial es el nombre dado a cierto grupo de funciones matemáticas con una estructura
+                    diseñada para emular el comportamiento de una neurona biológica.
+                </p>
+                <img src="imagenes/Neurona.PNG" width="750" height="390" alt="">
+                <h4 id="t4" class="texto_info">Como funciona una neurona artificial? </h4>
+                <p>La neurona artificial realiza el trabajo de procesar pequeñas cantidades de información numérica
+                    gracias a sus facultades matemáticas. Este funcionamiento es tan sencillo como validar una ecuación
+                    en un valor deseado. Se realiza la sumatoria de los valores de entrada multiplicados por los pesos
+                    sinápticos que les corresponde, al valor obtenido se le resta el valor del Umbral o Potencial
+                    de activación, por último, se evalúa el resultado obtenido en la función de activación propia de la neurona, dando como
+                    resultado final la respuesta de la neurona ante los valores de entrada propuestos. </p>
+                <img src="imagenes/ECNeuronal.PNG" alt="">
+                <h4 id="t5" class="texto_info">Como se entrena una red neuronal artificial? </h4>
+                <p>Hay varios métodos para el entrenamiento de una red neuronal artificial, el método utilizado en esta
+                    actividad es el aprendizaje supervisado que consiste en el uso de un conjunto de datos de
+                    entrenamiento conformados por datos de entrada y datos de salida a partir de los cuales la red
+                    neuronal modificara sus valores matemáticos internos poco a poco hasta lograr un resultado similar
+                    al de los datos con los que fue entrenada. </p>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+            </div>
+            <div class="d1" id="tp">
+                <h4 id="t1">Profundiza mas estos conocimientos: </h4>
+                <h4>Bibliografia</h4>
+                <p>Algunos loibros sobre inteligencia artificial y redes neuronales artificiales:</p>
+                <p>Una aproximación practica a las redes neuronales artificiales. Por: CAICEDO, Eduardo Francisco. LÓPEZ, Jesús Alfonso. </p>
+                <p>Pro Deep Learning with Tensorflow. Por: PATTANAYAK. Santanu. </p>
+                <p>DEEP LEARNING with Python. Por: CHOLLET. Francois. </p>
+                <h4>Paginas web</h4>
+                <p>Mas actividades relacionadas con la inteligencia artificial:</p>
+                <p>Machine learning for kids : <a href="https://machinelearningforkids.co.uk/" target="_blank">https://machinelearningforkids.co.uk/</a></p>
+                <p>Playground Tensorflow : <a href="https://playground.tensorflow.org" target="_blank">https://playground.tensorflow.org</a></p>
+                <p>Tensorflow for poets : <a href="https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/#0" target="_blank">https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/#0</a></p>
+                <p>Cognimates : <a href="http://cognimates.me/home/" target="_blank">http://cognimates.me/home/</a></p>
+            </div>
+
+        </div>
+    </section>
+    <section id="seccion4">
+        <div class="info_1">
+            <h4>Lenguajes de programación: </h4>
+            <p>HTML5 <img src="imagenes/HTML5.png" width="40px" height="40px" alt=""></p>
+            <p>CSS <img src="imagenes/css.png" width="40px" height="50px" alt=""></p>
+            <p>JavaScript <img src="imagenes/js-logo.png" width="40px" height="40px" alt=""></p>
+            <h4>Herramientas adicionales: </h4>
+            <p>TensorFlow.JS</p>
+            <p>MobileNet</p>
+            <p>JQuery</p>
+            <p>Bootstrap</p>
+        </div>
+        <div class="info_2">
+            <h4>Informacion de contacto:</h4>
+            <h5>Diseñador</h5>
+            <p>Carlos Daniel Padilla Sepulveda</p>
+            <h5>Email</h5>
+            <p>carlos.padilla@uao.edu.co</p>
+        </div>
+    </section>
+
+
+    <script src="js/butons.js"></script>
+    <script src="js/mobilenet.js"></script>
+
+</body>
+
+</html>
