@@ -197,6 +197,8 @@ section::before{
     border-right:solid;
     border-width: 1px;
     color: white;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .appb{    
     width: 100%;
@@ -333,6 +335,7 @@ section::before{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
 }
 .contenido{    
     width: 70%;
@@ -361,5 +364,8 @@ section::before{
     justify-content: center;
 }
 .d22{
+    padding-top: 50px;
     width: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
